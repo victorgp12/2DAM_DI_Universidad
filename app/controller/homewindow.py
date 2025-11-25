@@ -10,6 +10,11 @@ class HomeWindow(QMainWindow):
         self.ui = Ui_HomeWindow()
         self.ui.setupUi(self)
 
+        w = self.ui.stackedWidget
+        w.setMinimumSize(881, 621)
+        w.setMaximumSize(881, 621)
+
+
         self.load_styles()
 
         self.fix_margins()
@@ -24,7 +29,7 @@ class HomeWindow(QMainWindow):
             with open(style_path, "r", encoding="utf-8") as f:
                 style = f.read()
                 self.setStyleSheet(style)
-                print("✔ Estilos cargados correctamente")
+                print(" Estilos cargados correctamente")
         except FileNotFoundError:
             print("Archivo de estilos NO encontrado:", style_path)
         except Exception as e:
