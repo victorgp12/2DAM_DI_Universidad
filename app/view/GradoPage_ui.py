@@ -19,15 +19,19 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
     QFrame, QGridLayout, QGroupBox, QHeaderView,
     QLabel, QLineEdit, QPushButton, QSizePolicy,
     QSpacerItem, QSpinBox, QTableWidget, QTableWidgetItem,
-    QWidget)
+    QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
         Form.resize(657, 628)
-        self.gridLayout_3 = QGridLayout(Form)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.verticalLayout = QVBoxLayout(Form)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_4)
+
         self.frame = QFrame(Form)
         self.frame.setObjectName(u"frame")
         self.frame.setFrameShape(QFrame.Shape.StyledPanel)
@@ -42,28 +46,16 @@ class Ui_Form(object):
 
         self.gridLayout_2.addWidget(self.label, 0, 1, 1, 1)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_2.addItem(self.horizontalSpacer, 0, 0, 1, 1)
-
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout_2.addItem(self.horizontalSpacer_2, 0, 2, 1, 1)
 
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout_3.addWidget(self.frame, 2, 1, 1, 1)
+        self.gridLayout_2.addItem(self.horizontalSpacer, 0, 0, 1, 1)
 
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout_3.addItem(self.horizontalSpacer_3, 3, 0, 1, 1)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_3.addItem(self.horizontalSpacer_4, 3, 2, 1, 1)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout_3.addItem(self.verticalSpacer, 6, 1, 1, 1)
+        self.verticalLayout.addWidget(self.frame)
 
         self.frame_2 = QFrame(Form)
         self.frame_2.setObjectName(u"frame_2")
@@ -72,9 +64,14 @@ class Ui_Form(object):
         self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
         self.gridLayout_4 = QGridLayout(self.frame_2)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout_4.addItem(self.horizontalSpacer_5, 0, 0, 1, 1)
+        self.gridLayout_4.addItem(self.horizontalSpacer_6, 0, 0, 1, 1)
+
+        self.label_2 = QLabel(self.frame_2)
+        self.label_2.setObjectName(u"label_2")
+
+        self.gridLayout_4.addWidget(self.label_2, 0, 1, 1, 1)
 
         self.cb_facultad = QComboBox(self.frame_2)
         self.cb_facultad.setObjectName(u"cb_facultad")
@@ -82,29 +79,12 @@ class Ui_Form(object):
 
         self.gridLayout_4.addWidget(self.cb_facultad, 0, 2, 1, 1)
 
-        self.label_2 = QLabel(self.frame_2)
-        self.label_2.setObjectName(u"label_2")
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout_4.addWidget(self.label_2, 0, 1, 1, 1)
-
-        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_4.addItem(self.horizontalSpacer_6, 0, 3, 1, 1)
+        self.gridLayout_4.addItem(self.horizontalSpacer_5, 0, 3, 1, 1)
 
 
-        self.gridLayout_3.addWidget(self.frame_2, 3, 1, 1, 1)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout_3.addItem(self.verticalSpacer_2, 0, 1, 1, 1)
-
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout_3.addItem(self.verticalSpacer_3, 5, 1, 1, 1)
-
-        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout_3.addItem(self.verticalSpacer_4, 1, 1, 1, 1)
+        self.verticalLayout.addWidget(self.frame_2)
 
         self.frame_3 = QFrame(Form)
         self.frame_3.setObjectName(u"frame_3")
@@ -240,7 +220,11 @@ class Ui_Form(object):
         self.gridLayout.addWidget(self.label_3, 0, 5, 1, 1)
 
 
-        self.gridLayout_3.addWidget(self.frame_3, 4, 1, 1, 1)
+        self.verticalLayout.addWidget(self.frame_3)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_3)
 
 
         self.retranslateUi(Form)

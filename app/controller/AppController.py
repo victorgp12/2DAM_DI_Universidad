@@ -2,48 +2,46 @@ from app.controller.homewindow import HomeWindow
 from app.controller.universidadpage import UniversidadPage
 from app.controller.profesorpage import ProfesorPage
 from app.controller.departamentopage import DepartamentoPage
+from app.controller.gradopage import GradoPage
+
 
 class AppController:
     """Controlador principal de la aplicación."""
     def __init__(self):
-
         self.home = HomeWindow()
+        self.pages = {}
 
-        self.pages = {}#actua como un siccionario de paginas
-
-        self._setup_pages() #las añadimos al stackerdwidget
-
-   #la funcion de los botones
+        self._setup_pages()
         self.setup_connections()
 
         self.home.show()
 
     def _setup_pages(self):
-        #creamos las paginas y las añadimos al contenedor stacked widget
-        universidad = UniversidadPage(self.home)
-        profesor = ProfesorPage(self.home)
-        departamento = DepartamentoPage(self.home)
+        stacked = self.home.ui.stackedWidget
 
+        universidad = UniversidadPage(stacked)
+        profesor = ProfesorPage(stacked)
+        departamento = DepartamentoPage(stacked)
+        grado = GradoPage(stacked)
 
         self.pages["universidad"] = universidad
         self.pages["profesor"] = profesor
         self.pages["departamento"] = departamento
+        self.pages["grado"] = grado
 
-        stacked = self.home.ui.stackedWidget
         stacked.addWidget(universidad)
         stacked.addWidget(profesor)
         stacked.addWidget(departamento)
+        stacked.addWidget(grado)   # 👈 ESTA FALTABA
 
-        #ponemos que se muestre al iniciar la primera pagina
         stacked.setCurrentWidget(universidad)
 
-    #generando la conexion de los botones con cada pagina
     def setup_connections(self):
         self.home.ui.btnUniversidad.clicked.connect(self.go_to_universidadPage)
         self.home.ui.btnProfesor.clicked.connect(self.go_to_profesor)
         self.home.ui.btnDepartamento.clicked.connect(self.go_to_departamento)
+        self.home.ui.btnGrado.clicked.connect(self.go_to_grado)
 
-    #funcion generica para ir a cada pagina
     def go_to_universidadPage(self):
         self.show_page("universidad")
 
@@ -52,7 +50,10 @@ class AppController:
 
     def go_to_departamento(self):
         self.show_page("departamento")
-    #mostramos la ventana
+
+    def go_to_grado(self):
+        self.show_page("grado")
+
     def show_page(self, name: str):
         widget = self.pages[name]
         self.home.ui.stackedWidget.setCurrentWidget(widget)

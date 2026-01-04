@@ -1,9 +1,10 @@
 from PySide6.QtWidgets import QWidget, QTableWidgetItem, QMessageBox
 from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QAbstractItemView
 
-from view.GradoPage_ui import Ui_Form
-from service.grado_service import GradoService
-from models.grado import Grado
+from app.view.GradoPage_ui import Ui_Form
+from app.service.grado_service import GradoService
+from app.models.grado import Grado
 
 
 class GradoPage(QWidget):
@@ -28,8 +29,9 @@ class GradoPage(QWidget):
             "ID", "Nombre", "Código", "Duración", "Créditos", "Tipo", "Estado"
         ])
         self.ui.tbl_grados.setColumnHidden(0, True)
-        self.ui.tbl_grados.setSelectionBehavior(self.ui.tbl_grados.SelectRows)
-        self.ui.tbl_grados.setEditTriggers(self.ui.tbl_grados.NoEditTriggers)
+        self.ui.tbl_grados.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.ui.tbl_grados.setEditTriggers(QAbstractItemView.NoEditTriggers)
+
 
     def _conectar_eventos(self):
         self.ui.btn_nuevo.clicked.connect(self.nuevo_grado)

@@ -1,5 +1,5 @@
-from repository.grado_repo import GradoRepository
-from models.grado import Grado
+from app.repository.grado_repo import GradoRepository
+from app.models.grado import Grado
 
 
 class GradoService:

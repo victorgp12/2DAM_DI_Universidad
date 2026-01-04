@@ -1,6 +1,6 @@
 import sqlite3
-from data.db import get_connection
-from models.grado import Grado
+from app.data.db import get_connection
+from app.models.grado import Grado
 
 
 class GradoRepository:
