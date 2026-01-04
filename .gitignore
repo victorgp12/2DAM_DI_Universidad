@@ -35,10 +35,6 @@ Thumbs.db
 desktop.ini
 
 
-# Base de datos (AJUSTA AQUÍ)
-# Si la BBDD es solo local, ignórala
-universidad.db
-
 # Logs
 *.log
 
