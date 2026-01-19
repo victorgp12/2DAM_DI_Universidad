@@ -1,6 +1,5 @@
 from PySide6.QtWidgets import QWidget, QHeaderView, QAbstractItemView
-
-from app.view.Asignaturas_ui import Ui_AsignaturasView
+from app.view.Asignatura_ui import Ui_AsignaturasView
 
 
 class AsignaturaPage(QWidget):
@@ -16,28 +15,32 @@ class AsignaturaPage(QWidget):
     # CONFIGURACIÓN DE LA TABLA
     # -------------------------
     def _configurar_tabla(self):
-     tabla = self.ui.tbl_asignaturas
+        tabla = self.ui.tbl_asignaturas
 
-     tabla.setColumnCount(5)
-     tabla.setHorizontalHeaderLabels([
-        "Nombre", "Créditos", "Curso", "Cuatrimestre", "Obligatoria"
-     ])
+        tabla.setColumnCount(5)
+        tabla.setHorizontalHeaderLabels([
+            "Nombre", "Créditos", "Curso", "Cuatrimestre", "Obligatoria"
+        ])
 
-     tabla.verticalHeader().setVisible(False)
+        # Quitar columna gris
+        tabla.verticalHeader().setVisible(False)
 
-     tabla.setSelectionBehavior(QAbstractItemView.SelectRows)
-     tabla.setSelectionMode(QAbstractItemView.SingleSelection)
-     tabla.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        # Comportamiento de selección
+        tabla.setSelectionBehavior(QAbstractItemView.SelectRows)
+        tabla.setSelectionMode(QAbstractItemView.SingleSelection)
+        tabla.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
-     header = tabla.horizontalHeader()
-     header.setSectionResizeMode(QHeaderView.Stretch)
+        # Ajuste de columnas
+        header = tabla.horizontalHeader()
+        header.setSectionResizeMode(QHeaderView.Stretch)
 
-     tabla.verticalHeader().setDefaultSectionSize(26)
-     tabla.setAlternatingRowColors(True)
+        # Altura de filas acorde a la fuente
+        tabla.verticalHeader().setDefaultSectionSize(26)
 
+        tabla.setAlternatingRowColors(True)
 
     # -------------------------
-    # CONEXIÓN DE EVENTOS (placeholder)
+    # CONEXIÓN DE EVENTOS
     # -------------------------
     def _conectar_eventos(self):
         self.ui.btn_nueva.clicked.connect(self.nueva_asignatura)
@@ -46,7 +49,7 @@ class AsignaturaPage(QWidget):
         self.ui.btn_refrescar.clicked.connect(self.refrescar_tabla)
 
     # -------------------------
-    # MÉTODOS CRUD (VACÍOS DE MOMENTO)
+    # MÉTODOS CRUD (PLACEHOLDER)
     # -------------------------
     def nueva_asignatura(self):
         self.ui.lbl_estado.setText("Nueva asignatura")
