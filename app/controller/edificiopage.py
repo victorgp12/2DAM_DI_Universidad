@@ -59,8 +59,7 @@ class EdificioPage(QWidget):
                 self.ui.cbFacultad.addItem(facultad.nombre, facultad.id_facultad)
                 
         except Exception as e:
-            QMessageBox.warning(self, "Error", f"Error al cargar facultades: {str(e)}")
-
+            print(f"Error al cargar las facultades: {e}" )
     # -------------------------
     # AÑADIR EDIFICIO
     # -------------------------
