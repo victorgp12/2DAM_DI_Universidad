@@ -11,6 +11,10 @@ from app.repository.clase_repo import ClaseRepository
 from app.repository.edificio_repo import EdificioRepository
 from app.service.asignatura_service import AsignaturaService
 from app.service.clase_service import ClaseService
+from app.controller.edificiopage import EdificioPage
+from app.repository.edificio_repo import EdificioRepository
+from app.repository.facultad_repo import FacultadRepo
+from app.service.edificio_service import EdificioService
 
 
 class AppController:
@@ -64,6 +68,22 @@ class AppController:
         )
 
         clase = ClasePage(clase_service, stacked)
+        
+        
+        # -------------------------
+        # DEPENDENCIAS EDIFICIO
+        # -------------------------
+        edificio_repo = EdificioRepository()
+        facultad_repo = FacultadRepo()
+
+        edificio_service = EdificioService(
+            edificio_repo,
+            facultad_repo
+        )
+
+        edificio = EdificioPage(edificio_service, stacked)
+            
+        
 
         # REGISTRO DE PÁGINAS
         self.pages = {
@@ -72,7 +92,8 @@ class AppController:
             "departamento": departamento,
             "grado": grado,
             "asignatura": asignatura,
-            "clase": clase
+            "clase": clase,
+            "edificio": edificio
         }
 
         # AÑADIR AL STACK
@@ -104,6 +125,9 @@ class AppController:
         )
         self.home.ui.btnClase.clicked.connect(
             lambda: self.show_page("clase")
+        )
+        self.home.ui.btnEdificio.clicked.connect(
+            lambda: self.show_page("edificio")
         )
 
     # -------------------------
