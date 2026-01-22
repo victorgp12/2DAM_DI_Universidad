@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QWidget, QTableWidgetItem
+from PySide6.QtWidgets import QWidget, QTableWidgetItem, QMessageBox
 from app.view.DepartamentoPage_ui import Ui_DepartamentoPage
 
 class DepartamentoPage(QWidget):
@@ -13,9 +13,9 @@ class DepartamentoPage(QWidget):
     #agregar
         self.ui.btnAgregar.clicked.connect(self.Agregar)
     #eliminar
-        self.ui.btnEliminar
+        self.ui.btnEliminar.clicked.connect(self.Eliminar)
     #editar
-        self.ui.btnEditar
+        self.ui.btnEditar.clicked.connect(self.Editar)
     #actualizar
         self.ui.btnActualizar
     #exportar PDF
@@ -50,8 +50,15 @@ class DepartamentoPage(QWidget):
             self.ui.tablaFacultades.setItem(fila_fac, 0, QTableWidgetItem(facultad))
         else: 
             #Mensaje de alerta indicando que falta el nombre: 
+            alerta = QMessageBox()
+            alerta.setWindowTitle("¡¡ALERTA!!")
+            alerta.setText("NOMBRE FALTANTE")
             print("Flata introducir nombre")    
             
         #por hacer.
         
-        
+    def Eliminar(self):
+            asd
+
+    def Editar(self):
+         asd
