@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>864</width>
-    <height>590</height>
+    <width>868</width>
+    <height>598</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -213,7 +213,7 @@ QPushButton {
         <number>3</number>
        </property>
        <item>
-        <widget class="QPushButton" name="btnActualizar">
+        <widget class="QPushButton" name="btn_editar">
          <property name="font">
           <font>
            <family>Poppins</family>
@@ -231,7 +231,7 @@ QPushButton {
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btbGuardar">
+        <widget class="QPushButton" name="btn_guardar">
          <property name="font">
           <font>
            <family>Poppins</family>
@@ -249,7 +249,7 @@ QPushButton {
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnEliminar">
+        <widget class="QPushButton" name="btn_eliminar">
          <property name="font">
           <font>
            <family>Poppins</family>
@@ -267,7 +267,7 @@ QPushButton {
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnLimpiar">
+        <widget class="QPushButton" name="btn_limpiar">
          <property name="font">
           <font>
            <family>Poppins</family>
@@ -289,7 +289,7 @@ QPushButton {
     </layout>
    </item>
    <item>
-    <widget class="QTableWidget" name="tableWidget"/>
+    <widget class="QTableWidget" name="tabla_proyectos"/>
    </item>
   </layout>
  </widget>

@@ -24,7 +24,7 @@ class Ui_Proyecto_page(object):
     def setupUi(self, Proyecto_page):
         if not Proyecto_page.objectName():
             Proyecto_page.setObjectName(u"Proyecto_page")
-        Proyecto_page.resize(864, 590)
+        Proyecto_page.resize(868, 598)
         Proyecto_page.setStyleSheet(u"QLineEdit {\n"
 "	font: 300 14pt \"Poppins\";\n"
 "}\n"
@@ -150,38 +150,38 @@ class Ui_Proyecto_page(object):
         self.verticalLayout_4 = QVBoxLayout()
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.verticalLayout_4.setContentsMargins(3, 3, 3, 3)
-        self.btnActualizar = QPushButton(Proyecto_page)
-        self.btnActualizar.setObjectName(u"btnActualizar")
+        self.btn_editar = QPushButton(Proyecto_page)
+        self.btn_editar.setObjectName(u"btn_editar")
         font2 = QFont()
         font2.setFamilies([u"Poppins"])
         font2.setPointSize(14)
         font2.setWeight(QFont.DemiBold)
         font2.setItalic(False)
-        self.btnActualizar.setFont(font2)
-        self.btnActualizar.setStyleSheet(u"color:white")
+        self.btn_editar.setFont(font2)
+        self.btn_editar.setStyleSheet(u"color:white")
 
-        self.verticalLayout_4.addWidget(self.btnActualizar)
+        self.verticalLayout_4.addWidget(self.btn_editar)
 
-        self.btbGuardar = QPushButton(Proyecto_page)
-        self.btbGuardar.setObjectName(u"btbGuardar")
-        self.btbGuardar.setFont(font2)
-        self.btbGuardar.setStyleSheet(u"color:white")
+        self.btn_guardar = QPushButton(Proyecto_page)
+        self.btn_guardar.setObjectName(u"btn_guardar")
+        self.btn_guardar.setFont(font2)
+        self.btn_guardar.setStyleSheet(u"color:white")
 
-        self.verticalLayout_4.addWidget(self.btbGuardar)
+        self.verticalLayout_4.addWidget(self.btn_guardar)
 
-        self.btnEliminar = QPushButton(Proyecto_page)
-        self.btnEliminar.setObjectName(u"btnEliminar")
-        self.btnEliminar.setFont(font2)
-        self.btnEliminar.setStyleSheet(u"color:white")
+        self.btn_eliminar = QPushButton(Proyecto_page)
+        self.btn_eliminar.setObjectName(u"btn_eliminar")
+        self.btn_eliminar.setFont(font2)
+        self.btn_eliminar.setStyleSheet(u"color:white")
 
-        self.verticalLayout_4.addWidget(self.btnEliminar)
+        self.verticalLayout_4.addWidget(self.btn_eliminar)
 
-        self.btnLimpiar = QPushButton(Proyecto_page)
-        self.btnLimpiar.setObjectName(u"btnLimpiar")
-        self.btnLimpiar.setFont(font2)
-        self.btnLimpiar.setStyleSheet(u"color:white")
+        self.btn_limpiar = QPushButton(Proyecto_page)
+        self.btn_limpiar.setObjectName(u"btn_limpiar")
+        self.btn_limpiar.setFont(font2)
+        self.btn_limpiar.setStyleSheet(u"color:white")
 
-        self.verticalLayout_4.addWidget(self.btnLimpiar)
+        self.verticalLayout_4.addWidget(self.btn_limpiar)
 
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_4)
@@ -191,10 +191,10 @@ class Ui_Proyecto_page(object):
 
         self.verticalLayout_5.addLayout(self.horizontalLayout_2)
 
-        self.tableWidget = QTableWidget(Proyecto_page)
-        self.tableWidget.setObjectName(u"tableWidget")
+        self.tabla_proyectos = QTableWidget(Proyecto_page)
+        self.tabla_proyectos.setObjectName(u"tabla_proyectos")
 
-        self.verticalLayout_5.addWidget(self.tableWidget)
+        self.verticalLayout_5.addWidget(self.tabla_proyectos)
 
         self.verticalLayout_5.setStretch(0, 1)
         self.verticalLayout_5.setStretch(1, 1)
@@ -215,9 +215,9 @@ class Ui_Proyecto_page(object):
         self.pushButton.setText(QCoreApplication.translate("Proyecto_page", u"Guardar datos", None))
         self.lblNombre.setText(QCoreApplication.translate("Proyecto_page", u"Nombre:", None))
         self.lblCorreo.setText(QCoreApplication.translate("Proyecto_page", u"Descripci\u00f3n", None))
-        self.btnActualizar.setText(QCoreApplication.translate("Proyecto_page", u"Editar", None))
-        self.btbGuardar.setText(QCoreApplication.translate("Proyecto_page", u"Guardar", None))
-        self.btnEliminar.setText(QCoreApplication.translate("Proyecto_page", u"Eliminar", None))
-        self.btnLimpiar.setText(QCoreApplication.translate("Proyecto_page", u"Limpiar", None))
+        self.btn_editar.setText(QCoreApplication.translate("Proyecto_page", u"Editar", None))
+        self.btn_guardar.setText(QCoreApplication.translate("Proyecto_page", u"Guardar", None))
+        self.btn_eliminar.setText(QCoreApplication.translate("Proyecto_page", u"Eliminar", None))
+        self.btn_limpiar.setText(QCoreApplication.translate("Proyecto_page", u"Limpiar", None))
     # retranslateUi
 
