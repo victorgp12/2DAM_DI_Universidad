@@ -1,8 +1,6 @@
 from app.data.db import get_connection
 from app.models.proyecto import Proyecto
 
-    
-
 class ProyectoRepository:    
     
     def obtener_todos(self):
