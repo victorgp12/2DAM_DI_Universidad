@@ -1,7 +1,7 @@
 import pytest
 from app.models.grado import Grado
 from app.service.grado_service import GradoService
-from app.controller.gradopage import GradoPage  # ← Tu import correcto
+from app.controller.gradopage import GradoPage  
 
 def test_grado_model_valido():
     grado = Grado(nombre="Test", codigo="TST", duracion_anios=4, creditos_totales=240,
@@ -10,7 +10,7 @@ def test_grado_model_valido():
     assert grado.estado is True
 
 def test_service_crear_grado(grado_service, grado_valido):
-    grado_valido.codigo = "TEST_UNIQUE_" + str(hash("test"))  # ← Código ÚNICO
+    grado_valido.codigo = "TEST_UNIQUE_" + str(hash("test"))  
     resultado = grado_service.crear_grado(grado_valido)
     assert resultado.id_grado is not None
 
@@ -20,7 +20,6 @@ def test_service_actualizar_grado(grado_service, grado_existente, mocker):
     assert resultado is not None
 
 def test_service_eliminar_grado(grado_service, mocker):
-    # Mock find_by_id para retornar un grado (evita ValueError "no existe")
     mock_grado = Grado(id_grado=999, nombre="Mock", codigo="MOCK", duracion_anios=4,
                        creditos_totales=240, tipo="Grado", estado=True, id_facultad=1)
     mocker.patch.object(grado_service.repo, 'find_by_id', return_value=mock_grado)
@@ -55,3 +54,20 @@ def test_grado_page_eliminar(grado_page, mocker):
 def test_grado_page_cargar_grados(grado_page):
     grado_page.cargar_grados(1)
     grado_page.service.obtener_grados_por_facultad.assert_called_once_with(1)
+
+
+
+"""Con estas pruebas garantizamos:
+        Guarda correctamente todos los campos (nombre, código, créditos...)
+        No se rompe si cambias orden de parámetros en __init__
+        Estado booleano funciona (True/False)
+        crear_grado(): inserta + retorna ID válido
+        actualizar_grado(): llama repo.update correctamente  
+        eliminar_grado(): busca + borra (maneja "no existe")         <No usa BD real (mocks → rápido/aislado)>
+        nuevo_grado(): limpia form + desbloquea ✓
+        guardar(): lee UI → crea Grado → llama service ✓
+        editar(): desbloquea form ✓
+        eliminar(): confirma → service.eliminar ✓
+        cargar_grados(): service.obtener_grados ✓
+        No crashea sin Qt real (mocks)
+"""

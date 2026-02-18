@@ -2,7 +2,7 @@ import pytest
 from unittest.mock import Mock
 from app.service.grado_service import GradoService
 from app.models.grado import Grado
-from app.controller.gradopage import GradoPage  # ← IMPORT CORRECTO
+from app.controller.gradopage import GradoPage  
 
 @pytest.fixture
 def grado_service(mocker):
@@ -18,13 +18,13 @@ def grado_valido():
 
 @pytest.fixture
 def grado_existente():
-    return Grado(id_grado=1, nombre="Existente", codigo="EXIST999",  # ← ÚNICO
+    return Grado(id_grado=1, nombre="Existente", codigo="EXIST999", 
                  duracion_anios=4, creditos_totales=240, tipo="Grado", 
                  estado=True, id_facultad=1)
 
 @pytest.fixture
 def grado_page(mocker):
-    page = GradoPage()  # ← GRADOPAGE() NO GRADO()
+    page = GradoPage()  
     page.service = Mock()
     page.ui = Mock()
     page.ui.tbl_grados = Mock()
@@ -37,3 +37,7 @@ def grado_page(mocker):
     page.ui.grp_formulario = Mock(setEnabled=Mock())
     page.ui.cb_facultad = Mock(currentData=Mock(return_value=1))
     return page
+
+"""
+Aqui debajo vuestros FIXTURE 🡫
+"""
