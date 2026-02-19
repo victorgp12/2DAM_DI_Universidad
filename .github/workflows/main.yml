@@ -1,8 +1,9 @@
+# .github/workflows/build-exe.yml
 name: Build EXE Universidad
 on: 
   push:
     branches: [ main ]
-  workflow_dispatch:  # Botón manual
+  workflow_dispatch:
 
 jobs:
   build:
@@ -15,16 +16,25 @@ jobs:
       with:
         python-version: '3.12'
     
-    - name: Install dependencies
+    - name: Install PySide6 + PyInstaller
       run: |
-        pip install PySide6==6.10.0 PySide6_Addons==6.10.0 PySide6_Essentials==6.10.0 shiboken6==6.10.0 Pillow==12.1.0 pyinstaller==6.10.0
+        pip install PySide6 PySide6_Addons PySide6_Essentials shiboken6 Pillow pyinstaller
     
-    - name: Build EXE
-      run: pyinstaller main.spec
+    - name: Build EXE (SIN SPEC)
+      run: |
+        pyinstaller --onefile --windowed ^
+          --add-data "app/resources;app/resources" ^
+          --add-data "app/assets;app/assets" ^
+          --add-data "app/styles;app/styles" ^
+          --hidden-import=PySide6.QtCore ^
+          --hidden-import=PySide6.QtGui ^
+          --hidden-import=PySide6.QtWidgets ^
+          --name "GestorUniversidad" ^
+          main.py
     
     - name: Upload EXE
       uses: actions/upload-artifact@v4
       with:
-        name: Gestor-Universidad-v${{ github.sha }}
+        name: Gestor-Universidad-${{ github.sha }}
         path: dist/GestorUniversidad.exe
         retention-days: 30
