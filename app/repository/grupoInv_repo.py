@@ -2,6 +2,16 @@ from app.data.db import get_connection
 from app.models.grupoInv import GrupoInvestigacion
 
 class GrupoInvRepository:
+
+    def create_grupo_inv(self, grupo_inv):
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute("""
+            INSERT INTO grupo_investigacion (id_grupoInv, nombre, descripcion, fecha_creacion)
+            VALUES (?, ?, ?, ?)
+        """, ( grupo_inv.id_grupoInv, grupo_inv.nombre, grupo_inv.descripcion, grupo_inv.fecha_creacion))
+        conn.commit()
+        conn.close()
     
     def cargar_lista_grupos_inv(self):
         conn = get_connection()
