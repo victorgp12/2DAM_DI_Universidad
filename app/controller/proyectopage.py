@@ -3,7 +3,7 @@ from app.view.ProyectoPage_ui import Ui_Proyecto_page
 
 
 class ProyectoPage(QWidget):
-    def __init__(self, proyecto_service, grupoInv_service, parent=None):
+    def __init__(self, proyecto_service, grupo_inv_service, parent=None):
         super().__init__(parent)
         self.ui = Ui_Proyecto_page()
         self.ui.setupUi(self)
@@ -29,7 +29,7 @@ class ProyectoPage(QWidget):
         
         # Inicialización de clases
         self.proyecto_service = proyecto_service
-        self.grupoInv_service = grupoInv_service
+        self.grupo_inv_service = grupo_inv_service
         
         # Inicializando métodos
         #self.cargar_datos()
@@ -52,8 +52,8 @@ class ProyectoPage(QWidget):
         
         self.generar_tabla(self.tabla_proyectos, datos)
         
-    def cargar_lista_gruposInv(self):
-        datos = self.grupoInv_service.cargar_lista_gruposInv()
+    def cargar_lista_grupos_inv(self):
+        datos = self.grupo_inv_service.cargar_lista_grupos_inv()
         # datos devuelve objteos de grupo Investigacion --> id_grupo y nombre
         desplegable_grupos = self.ui.comboBox_gruposInv
         desplegable_grupos.clear()
