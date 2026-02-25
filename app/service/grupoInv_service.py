@@ -19,3 +19,23 @@ class GrupoInvService:
         if not grupo_inv.nombre or grupo_inv.nombre.strip() == "":
             raise ValueError("El nombre del grupo de investigación es obligatorio")
         return self.grupo_inv_repo.create_grupo_inv(grupo_inv)
+    
+    def eliminar_grupo_inv(self, id_grupo_inv):
+        grupo_inv_existente = self.grupo_inv_repo.get_grupo_inv_by_id(id_grupo_inv)
+        if not grupo_inv_existente:
+            raise ValueError("Grupo de investigación no encontrado")
+        return self.grupo_inv_repo.delete_grupo_inv(id_grupo_inv)
+    
+    def actualizar_grupo_inv(self, id_grupo_inv, grupo_inv: GrupoInvestigacion):
+        grupo_inv_existente = self.grupo_inv_repo.get_grupo_inv_by_id(id_grupo_inv)
+        if not grupo_inv_existente:
+            raise ValueError("Grupo de investigación no encontrado")
+        if not grupo_inv.nombre or grupo_inv.nombre.strip() == "":
+            raise ValueError("El nombre del grupo de investigación es obligatorio")
+        return self.grupo_inv_repo.update_grupo_inv(grupo_inv)
+    
+    def obtener_grupo_inv_por_id(self, id_grupo_inv):
+        grupo_inv = self.grupo_inv_repo.get_grupo_inv_by_id(id_grupo_inv)
+        if not grupo_inv:
+            raise ValueError("Grupo de investigación no encontrado")
+        return grupo_inv

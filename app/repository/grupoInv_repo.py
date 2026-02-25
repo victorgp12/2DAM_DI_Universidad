@@ -36,14 +36,14 @@ class GrupoInvRepository:
         conn.commit()
         conn.close()
 
-    def update_facultad(self, grupo_inv):
+    def update_grupo_inv(self, grupo_inv):
         conn = get_connection()
         cursor = conn.cursor()
         cursor.execute("""
             UPDATE grupo_investigacion
             SET id_grupoInv = ?, nombre = ?, descripcion = ?, fecha_creacion = ?
             WHERE id = ?
-        """, (grupo_inv.id_universidad, grupo_inv.id_grupoInv, grupo_inv.nombre, grupo_inv.descripcion, grupo_inv.fecha_creacion, grupo_inv.id))
+        """, (grupo_inv.id_grupoInv, grupo_inv.nombre, grupo_inv.descripcion, grupo_inv.fecha_creacion, grupo_inv.id))
         conn.commit()
         conn.close()
 
