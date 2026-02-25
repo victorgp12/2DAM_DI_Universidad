@@ -33,7 +33,7 @@ class ProyectoPage(QWidget):
         
         # Inicializando métodos
         #self.cargar_datos()
-        self.cargar_lista_gruposInv()
+        self.cargar_lista_grupos_inv()
         
         # FUNCIONES DE LA VENTANA
         self.ui.comboBox_gruposInv.currentIndexChanged.connect(self.filtrar_por_grupo)
